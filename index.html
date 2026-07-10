@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Waybill Management Dashboard</title>
+    <link rel="stylesheet" href="index-style.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <!-- Dashboard Header -->
+        <header class="dash-header">
+            <div class="brand">
+                <h1>CargoOps</h1>
+                <span class="badge">Air Freight Central</span>
+            </div>
+            <div class="dash-actions">
+                <button class="btn btn-primary">+ Create New AWB</button>
+            </div>
+        </header>
+
+        <!-- Metrics Overview Ribbon -->
+        <section class="metrics-ribbon">
+            <div class="metric-card">
+                <span class="metric-label">Total Shipments</span>
+                <span class="metric-value">1,248</span>
+            </div>
+            <div class="metric-card">
+                <span class="metric-label">Pending Departure</span>
+                <span class="metric-value text-warning">14</span>
+            </div>
+            <div class="metric-card">
+                <span class="metric-label">In-Flight</span>
+                <span class="metric-value text-success">32</span>
+            </div>
+        </section>
+
+        <!-- Concise Shipment Master Log Table -->
+        <main class="table-container">
+            <div class="table-title-bar">
+                <h2>Master Air Waybill Manifest</h2>
+                <input type="text" class="search-input" placeholder="Search by AWB, Shipper, or Dest...">
+            </div>
+            
+            <table class="manifest-table">
+                <thead>
+                    <tr>
+                        <th>AWB Number</th>
+                        <th>Shipper</th>
+                        <th>Consignee</th>
+                        <th>Route</th>
+                        <th>Flight / Date</th>
+                        <th>Weight / Vol</th>
+                        <th>Status</th>
+                        <th class="text-right">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Linked Data Entry matching your exact form layout specifications -->
+                    <tr>
+                        <td class="bold text-primary">001-12345678</td>
+                        <td>
+                            <div class="entity-name">CABLE AND STEEL CO.</div>
+                            <span class="entity-loc">New York, USA</span>
+                        </td>
+                        <td>
+                            <div class="entity-name">CABLE BIG STORE</div>
+                            <span class="entity-loc">London, England</span>
+                        </td>
+                        <td><span class="route-pill">JFK &rarr; LHR</span></td>
+                        <td>AA1234-12</td>
+                        <td>100 Kg <small class="muted">(0.2 m³)</small></td>
+                        <td><span class="status-indicator status-active">Manifested</span></td>
+                        <td class="text-right">
+                            <!-- Direct link targets target="_blank" to protect the current index state -->
+                            <a href="awb-template.html" target="_blank" class="btn btn-secondary btn-sm">View / Print</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
+
+</body>
+</html>
