@@ -1,0 +1,75 @@
+/* Base Layout Styles */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    color: #000;
+}
+.awb-container {
+    width: 210mm; /* standard A4 width */
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 10mm;
+    box-sizing: border-box;
+}
+.awb-row {
+    display: flex;
+    width: 100%;
+}
+.border {
+    border: 1px solid #000;
+    margin: -1px 0 0 -1px; /* Overlaps borders cleanly like a real grid */
+    padding: 5px;
+}
+.awb-col-2 { width: 16.66%; }
+.awb-col-3 { width: 25%; }
+.awb-col-4 { width: 33.33%; }
+.awb-col-6 { width: 50%; }
+.text-center { text-align: center; }
+.field-data {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+.awb-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: -1px;
+}
+.awb-table th, .awb-table td {
+    border: 1px solid #000;
+    padding: 6px;
+    text-align: left;
+}
+
+/* --- PRINT RULES --- */
+@media print {
+    /* Hide screen-only interactive elements */
+    .no-print {
+        display: none !important;
+    }
+    
+    /* Force margins and size configuration */
+    @page {
+        size: A4 portrait;
+        margin: 5mm; /* Tight margins to prevent data spillover to 2nd page */
+    }
+    
+    body {
+        background: none;
+        -webkit-print-color-adjust: exact; /* Ensures accurate color/shading rendering */
+        print-color-adjust: exact;
+    }
+
+    .awb-container {
+        width: 100%;
+        padding: 0;
+        box-shadow: none;
+    }
+
+    /* Prevent the document table or signature blocks from fragmenting across pages */
+    .awb-row, table, tr {
+        page-break-inside: avoid;
+    }
+}
