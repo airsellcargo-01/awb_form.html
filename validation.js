@@ -27,4 +27,27 @@ document.getElementById('awbForm').addEventListener('submit', function(event) {
         event.preventDefault();
         return;
     }
+
+    // 3. Save Data to localStorage for Dashboard pipeline
+    event.preventDefault(); // Prevents page reload so we can handle data saving safely
+
+    const newShipment = {
+        awbNumber: document.getElementById('awb_number').value,
+        origin: origin,
+        destination: destination,
+        timestamp: new Date().toLocaleString(),
+        status: 'Pending Departure' // Default operational status
+    };
+
+    // Retrieve existing shipments or start a new collection
+    let savedShipments = JSON.parse(localStorage.getItem('airCargoShipments')) || [];
+    
+    // Add new document log to the beginning of the array
+    savedShipments.unshift(newShipment);
+    
+    // Save back to browser storage
+    localStorage.setItem('airCargoShipments', JSON.stringify(savedShipments));
+
+    alert('Operation Saved Successfully! Redirecting to Dashboard...');
+    window.location.href = 'index.html'; // Direct flow back to tracking panel
 });
